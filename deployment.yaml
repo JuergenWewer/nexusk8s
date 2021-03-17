@@ -1,10 +1,13 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nexus
   namespace: devops-tools
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nexus-server
   template:
     metadata:
       labels:
@@ -22,6 +25,7 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 8081
+            - containerPort: 8132
           volumeMounts:
             - name: nexus-data
               mountPath: /nexus-data
