@@ -1,4 +1,4 @@
-installdir: /home/jwewer/nexusk8s
+installdir: /home/jwewer/workspace/nexusk8s
 exports: exports-optimal
 mountdirs: ./nfs/mountdirs-optimal
 persistentvolumeslist: ./persistentvolumes/optimal/list
