@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - name: delete service
+      shell: kubectl delete -f ../service.yaml
+    - name: delete service-client
+      shell: kubectl delete -f ../service-client.yaml
+    - name: delete deployment
+      shell: kubectl delete -f ../deployment-w-pvc.yaml
+    - name: delete persistentvolumeclaim
+      shell: kubectl delete -f ../persistentvolumeclaim.yaml
+    - name: delete persistentvolume
+      shell: kubectl delete -f ../persistentvolume.yaml

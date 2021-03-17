@@ -1,0 +1,6 @@
+installdir: $HOME/workspace/nexusk8s
+exports: exports-macpro
+mountdirs: ./nfs/mountdirs-macpro
+persistentvolumeslist: ./persistentvolumes/macpro/list
+pvs: persistentvolumes/pvs-macpro.yml
+pvsdir: ./playbooks/persistentvolumes/macpro

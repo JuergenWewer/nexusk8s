@@ -1,0 +1,26 @@
+- hosts: master
+  tasks:
+    - name: create directories to be mounted
+      become: true
+      file:
+        path: '{{ item }}'
+        state: directory
+        mode: 0777
+      with_lines: cat "{{ mountdirs }}"
+- hosts: localhost
+  tasks:
+    - name: create persistent volumes
+      shell: kubectl apply -f "{{ item }}"
+      args:
+        chdir: "{{ installdir }}"
+      with_lines: cat "{{ persistentvolumeslist }}"
+    - name: kubectl create namespace devops-tools
+      shell: kubectl create namespace devops-tools
+    - name: create persistentvolumeclaim
+      shell: kubectl create -f ../persistentvolumeclaim.yaml
+    - name: create deployment
+      shell: kubectl create -f ../deployment-w-pvc.yaml
+    - name: create service
+      shell: kubectl create -f ../service.yaml
+    - name: create service client
+      shell: kubectl create -f ../service-client.yaml

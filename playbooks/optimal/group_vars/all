@@ -1,0 +1,7 @@
+installdir: /home/jwewer/nexusk8s
+exports: exports-optimal
+mountdirs: ./nfs/mountdirs-optimal
+persistentvolumeslist: ./persistentvolumes/optimal/list
+pvs: persistentvolumes/pvs-optimal.yml
+ansible_sudo_pass: OSVHyuuvis2021!
+pvsdir: /home/jwewer/workspace/yuuvis/playbooks/persistentvolumes/optimal
