@@ -14,8 +14,8 @@
       args:
         chdir: "{{ installdir }}"
       with_lines: cat "{{ persistentvolumeslist }}"
-#    - name: kubectl create namespace devops-tools
-#      shell: kubectl create namespace devops-tools
+    - name: kubectl create namespace devops-tools
+      shell: kubectl create namespace devops-tools
     - name: create persistentvolumeclaim
       shell: kubectl create -f ../persistentvolumeclaim.yaml
     - name: create deployment
